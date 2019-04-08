@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Empleados" EntityType="Model1.Store.Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departamentos" EntityType="Model1.Store.Departamentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cargos" EntityType="Model1.Store.Cargos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vacaciones" EntityType="Model1.Store.Vacaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cal_Nomina" EntityType="Model1.Store.Cal_Nomina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Salida_Empleados" EntityType="Model1.Store.Salida_Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permisos" EntityType="Model1.Store.Permisos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Licencias" EntityType="Model1.Store.Licencias" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DepartamentosEmpleados" Association="Model1.Store.DepartamentosEmpleados">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="CargosEmpleados" Association="Model1.Store.CargosEmpleados">
+      <End Role="Cargos" EntitySet="Cargos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosVacaciones" Association="Model1.Store.EmpleadosVacaciones">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Vacaciones" EntitySet="Vacaciones" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosLicencias" Association="Model1.Store.EmpleadosLicencias">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Licencias" EntitySet="Licencias" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosCal_Nomina" Association="Model1.Store.EmpleadosCal_Nomina">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Cal_Nomina" EntitySet="Cal_Nomina" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosSalida_Empleados" Association="Model1.Store.EmpleadosSalida_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Salida_Empleados" EntitySet="Salida_Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="EmpleadosPermisos" Association="Model1.Store.EmpleadosPermisos">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Permisos" EntitySet="Permisos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo_Empleado" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
+    <Property Name="Salario" Type="float" Nullable="false" />
+    <Property Name="Estatus" Type="bit" Nullable="false" />
+    <Property Name="DepartamentosId" Type="int" Nullable="false" />
+    <Property Name="CargosId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo_Departamento" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cargo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vacaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Ano_Corres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cal_Nomina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ano" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Monto_Total" Type="int" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salida_Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Tipo_Salida" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_Salida" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Licencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpleadosId" Type="int" Nullable="false" />
+    <Property Name="Desde" Type="datetime" Nullable="false" />
+    <Property Name="Hasta" Type="datetime" Nullable="false" />
+    <Property Name="Motivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comentario" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="DepartamentosEmpleados">
+    <End Role="Departamentos" Type="Model1.Store.Departamentos" Multiplicity="1" />
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="DepartamentosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CargosEmpleados">
+    <End Role="Cargos" Type="Model1.Store.Cargos" Multiplicity="1" />
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="CargosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosVacaciones">
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="1" />
+    <End Role="Vacaciones" Type="Model1.Store.Vacaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacaciones">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosLicencias">
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="1" />
+    <End Role="Licencias" Type="Model1.Store.Licencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Licencias">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosCal_Nomina">
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="1" />
+    <End Role="Cal_Nomina" Type="Model1.Store.Cal_Nomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cal_Nomina">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosSalida_Empleados">
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="1" />
+    <End Role="Salida_Empleados" Type="Model1.Store.Salida_Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salida_Empleados">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmpleadosPermisos">
+    <End Role="Empleados" Type="Model1.Store.Empleados" Multiplicity="1" />
+    <End Role="Permisos" Type="Model1.Store.Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Permisos">
+        <PropertyRef Name="EmpleadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Empleados" EntityType="Model1.Empleados" />
+          <EntitySet Name="Departamentos" EntityType="Model1.Departamentos" />
+          <EntitySet Name="Cargos" EntityType="Model1.Cargos" />
+          <EntitySet Name="Vacaciones" EntityType="Model1.Vacaciones" />
+          <EntitySet Name="Cal_Nomina" EntityType="Model1.Cal_Nomina" />
+          <EntitySet Name="Salida_Empleados" EntityType="Model1.Salida_Empleados" />
+          <EntitySet Name="Permisos" EntityType="Model1.Permisos" />
+          <EntitySet Name="Licencias" EntityType="Model1.Licencias" />
+          <AssociationSet Name="DepartamentosEmpleados" Association="Model1.DepartamentosEmpleados">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="CargosEmpleados" Association="Model1.CargosEmpleados">
+            <End Role="Cargos" EntitySet="Cargos" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadosVacaciones" Association="Model1.EmpleadosVacaciones">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Vacaciones" EntitySet="Vacaciones" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadosLicencias" Association="Model1.EmpleadosLicencias">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Licencias" EntitySet="Licencias" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadosCal_Nomina" Association="Model1.EmpleadosCal_Nomina">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cal_Nomina" EntitySet="Cal_Nomina" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadosSalida_Empleados" Association="Model1.EmpleadosSalida_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Salida_Empleados" EntitySet="Salida_Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadosPermisos" Association="Model1.EmpleadosPermisos">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Permisos" EntitySet="Permisos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Empleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" />
+          <Property Name="Salario" Type="Double" Nullable="false" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="DepartamentosId" Type="Int32" Nullable="false" />
+          <Property Name="CargosId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departamento" Relationship="Model1.DepartamentosEmpleados" FromRole="Empleados" ToRole="Departamentos" />
+          <NavigationProperty Name="Cargo" Relationship="Model1.CargosEmpleados" FromRole="Empleados" ToRole="Cargos" />
+          <NavigationProperty Name="Vacaciones" Relationship="Model1.EmpleadosVacaciones" FromRole="Empleados" ToRole="Vacaciones" />
+          <NavigationProperty Name="Licencias" Relationship="Model1.EmpleadosLicencias" FromRole="Empleados" ToRole="Licencias" />
+          <NavigationProperty Name="Cal_Nomina" Relationship="Model1.EmpleadosCal_Nomina" FromRole="Empleados" ToRole="Cal_Nomina" />
+          <NavigationProperty Name="Salida_Empleados" Relationship="Model1.EmpleadosSalida_Empleados" FromRole="Empleados" ToRole="Salida_Empleados" />
+          <NavigationProperty Name="Permisos" Relationship="Model1.EmpleadosPermisos" FromRole="Empleados" ToRole="Permisos" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Departamento" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Empleados" Relationship="Model1.DepartamentosEmpleados" FromRole="Departamentos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cargo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Empleados" Relationship="Model1.CargosEmpleados" FromRole="Cargos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Vacaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpleadosId" Type="Int32" Nullable="false" />
+          <Property Name="Desde" Type="DateTime" Nullable="false" />
+          <Property Name="Hasta" Type="DateTime" Nullable="false" />
+          <Property Name="Ano_Corres" Type="String" Nullable="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model1.EmpleadosVacaciones" FromRole="Vacaciones" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Cal_Nomina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ano" Type="String" Nullable="false" />
+          <Property Name="Mes" Type="String" Nullable="false" />
+          <Property Name="Monto_Total" Type="Int32" Nullable="false" />
+          <Property Name="EmpleadosId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model1.EmpleadosCal_Nomina" FromRole="Cal_Nomina" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Salida_Empleados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpleadosId" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Salida" Type="String" Nullable="false" />
+          <Property Name="Motivo" Type="String" Nullable="false" />
+          <Property Name="Fecha_Salida" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model1.EmpleadosSalida_Empleados" FromRole="Salida_Empleados" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Permisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpleadosId" Type="Int32" Nullable="false" />
+          <Property Name="Desde" Type="DateTime" Nullable="false" />
+          <Property Name="Hasta" Type="DateTime" Nullable="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model1.EmpleadosPermisos" FromRole="Permisos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Licencias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpleadosId" Type="Int32" Nullable="false" />
+          <Property Name="Desde" Type="DateTime" Nullable="false" />
+          <Property Name="Hasta" Type="DateTime" Nullable="false" />
+          <Property Name="Motivo" Type="String" Nullable="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Model1.EmpleadosLicencias" FromRole="Licencias" ToRole="Empleados" />
+        </EntityType>
+        <Association Name="DepartamentosEmpleados">
+          <End Type="Model1.Departamentos" Role="Departamentos" Multiplicity="1" />
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="DepartamentosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CargosEmpleados">
+          <End Type="Model1.Cargos" Role="Cargos" Multiplicity="1" />
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="CargosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpleadosVacaciones">
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="Model1.Vacaciones" Role="Vacaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacaciones">
+              <PropertyRef Name="EmpleadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpleadosLicencias">
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="Model1.Licencias" Role="Licencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Licencias">
+              <PropertyRef Name="EmpleadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpleadosCal_Nomina">
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="Model1.Cal_Nomina" Role="Cal_Nomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cal_Nomina">
+              <PropertyRef Name="EmpleadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpleadosSalida_Empleados">
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="Model1.Salida_Empleados" Role="Salida_Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salida_Empleados">
+              <PropertyRef Name="EmpleadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpleadosPermisos">
+          <End Type="Model1.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="Model1.Permisos" Role="Permisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permisos">
+              <PropertyRef Name="EmpleadosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Empleados)">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo_Empleado" ColumnName="Codigo_Empleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="DepartamentosId" ColumnName="DepartamentosId" />
+          <ScalarProperty Name="CargosId" ColumnName="CargosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Departamentos)">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo_Departamento" ColumnName="Codigo_Departamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cargos)">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Vacaciones)">
+        <MappingFragment StoreEntitySet="Vacaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpleadosId" ColumnName="EmpleadosId" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Ano_Corres" ColumnName="Ano_Corres" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cal_Nomina">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cal_Nomina)">
+        <MappingFragment StoreEntitySet="Cal_Nomina">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Monto_Total" ColumnName="Monto_Total" />
+          <ScalarProperty Name="EmpleadosId" ColumnName="EmpleadosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salida_Empleados">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Salida_Empleados)">
+        <MappingFragment StoreEntitySet="Salida_Empleados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpleadosId" ColumnName="EmpleadosId" />
+          <ScalarProperty Name="Tipo_Salida" ColumnName="Tipo_Salida" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Fecha_Salida" ColumnName="Fecha_Salida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Permisos)">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpleadosId" ColumnName="EmpleadosId" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licencias">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Licencias)">
+        <MappingFragment StoreEntitySet="Licencias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpleadosId" ColumnName="EmpleadosId" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
