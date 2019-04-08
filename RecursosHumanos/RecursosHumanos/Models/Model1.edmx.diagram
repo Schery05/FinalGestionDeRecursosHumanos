@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dee49852b99e4b89a7b64acd683b55a5" Name="Diagram1" ZoomLevel="48" >
-        <EntityTypeShape EntityType="Model1.Empleados" Width="1.5" PointX="3.625" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.Departamentos" Width="1.5" PointX="1.375" PointY="0.625" />
-        <EntityTypeShape EntityType="Model1.Cargos" Width="1.5" PointX="1.375" PointY="2.75" />
-        <EntityTypeShape EntityType="Model1.Vacaciones" Width="1.5" PointX="5.625" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.Cal_Nomina" Width="1.5" PointX="5.625" PointY="3" />
-        <EntityTypeShape EntityType="Model1.Salida_Empleados" Width="1.5" PointX="1.375" PointY="4.625" />
-        <EntityTypeShape EntityType="Model1.Permisos" Width="1.5" PointX="3.875" PointY="5.375" />
-        <EntityTypeShape EntityType="Model1.Licencias" Width="1.5" PointX="5.625" PointY="5.375" />
+      <Diagram DiagramId="14db2799f9e64243a316e6b61f52d905" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="Model1.Empleados" Width="1.875" PointX="4.875" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Departamentos" Width="1.5" PointX="7.75" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Cargos" Width="1.5" PointX="6.125" PointY="5.875" />
+        <EntityTypeShape EntityType="Model1.Licencias" Width="1.5" PointX="1.25" PointY="3.75" />
+        <EntityTypeShape EntityType="Model1.Cal_Nomina" Width="1.5" PointX="3.625" PointY="5.75" />
+        <EntityTypeShape EntityType="Model1.Permisos" Width="1.5" PointX="9.875" PointY="2" />
+        <EntityTypeShape EntityType="Model1.Vacaciones" Width="1.5" PointX="9.125" PointY="5.125" />
         <AssociationConnector Association="Model1.DepartamentosEmpleados" />
         <AssociationConnector Association="Model1.CargosEmpleados" />
-        <AssociationConnector Association="Model1.EmpleadosVacaciones" />
         <AssociationConnector Association="Model1.EmpleadosLicencias" />
         <AssociationConnector Association="Model1.EmpleadosCal_Nomina" />
-        <AssociationConnector Association="Model1.EmpleadosSalida_Empleados" />
         <AssociationConnector Association="Model1.EmpleadosPermisos" />
+        <AssociationConnector Association="Model1.EmpleadosVacaciones" />
+        <EntityTypeShape EntityType="Model1.Salida_Empleados" Width="1.5" PointX="1.375" PointY="1" />
+        <AssociationConnector Association="Model1.EmpleadosSalida_Empleados" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

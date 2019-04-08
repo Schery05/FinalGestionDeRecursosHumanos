@@ -13,10 +13,10 @@ namespace RecursosHumanos.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class Model1Container1 : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public Model1Container1()
+            : base("name=Model1Container1")
         {
         }
     
@@ -25,13 +25,13 @@ namespace RecursosHumanos.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Empleados> Empleados { get; set; }
-        public virtual DbSet<Departamentos> Departamentos { get; set; }
-        public virtual DbSet<Cargos> Cargos { get; set; }
-        public virtual DbSet<Vacaciones> Vacaciones { get; set; }
-        public virtual DbSet<Cal_Nomina> Cal_Nomina { get; set; }
-        public virtual DbSet<Salida_Empleados> Salida_Empleados { get; set; }
-        public virtual DbSet<Permisos> Permisos { get; set; }
-        public virtual DbSet<Licencias> Licencias { get; set; }
+        public virtual DbSet<Empleados> EmpleadosSet { get; set; }
+        public virtual DbSet<Departamentos> DepartamentosSet { get; set; }
+        public virtual DbSet<Cargos> CargosSet { get; set; }
+        public virtual DbSet<Licencias> LicenciasSet { get; set; }
+        public virtual DbSet<Cal_Nomina> Cal_NominaSet { get; set; }
+        public virtual DbSet<Permisos> PermisosSet { get; set; }
+        public virtual DbSet<Vacaciones> VacacionesSet { get; set; }
+        public virtual DbSet<Salida_Empleados> Salida_EmpleadosSet { get; set; }
     }
 }
