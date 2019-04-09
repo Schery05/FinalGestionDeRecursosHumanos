@@ -25,12 +25,19 @@ namespace RecursosHumanos.Controllers
             var empleados = db.EmpleadosSet.Include(e => e.Departamento).Include(e => e.Cargos);
             return View(empleados.Where(x => x.Nombre.Contains(searching) || searching == null).ToList());
         }
+        
 
         // GET: Empleados
         public ActionResult Index()
         {
             var empleadosSet = db.EmpleadosSet.Include(e => e.Departamento).Include(e => e.Cargos);
             return View(empleadosSet.ToList());
+        }
+
+        public ActionResult Procesos()
+        {
+            var empleados = db.EmpleadosSet.Include(e => e.Departamento).Include(e => e.Cargos);
+            return View(empleados.ToList());
         }
 
         // GET: Empleados/Details/5
