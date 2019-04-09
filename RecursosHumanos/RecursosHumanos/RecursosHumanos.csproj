@@ -139,6 +139,7 @@
     <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PermisosController.cs" />
     <Compile Include="Controllers\Salida_EmpleadosController.cs" />
     <Compile Include="Controllers\VacacionesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -271,6 +272,11 @@
     <Content Include="Views\Cal_Nomina\Details.cshtml" />
     <Content Include="Views\Cal_Nomina\Edit.cshtml" />
     <Content Include="Views\Cal_Nomina\Index.cshtml" />
+    <Content Include="Views\Permisos\Create.cshtml" />
+    <Content Include="Views\Permisos\Delete.cshtml" />
+    <Content Include="Views\Permisos\Details.cshtml" />
+    <Content Include="Views\Permisos\Edit.cshtml" />
+    <Content Include="Views\Permisos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
