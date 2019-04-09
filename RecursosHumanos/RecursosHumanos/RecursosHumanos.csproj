@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Cal_NominaController.cs" />
     <Compile Include="Controllers\CargosController.cs" />
     <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
@@ -265,6 +266,11 @@
     <Content Include="Views\Vacaciones\Details.cshtml" />
     <Content Include="Views\Vacaciones\Edit.cshtml" />
     <Content Include="Views\Vacaciones\Index.cshtml" />
+    <Content Include="Views\Cal_Nomina\Create.cshtml" />
+    <Content Include="Views\Cal_Nomina\Delete.cshtml" />
+    <Content Include="Views\Cal_Nomina\Details.cshtml" />
+    <Content Include="Views\Cal_Nomina\Edit.cshtml" />
+    <Content Include="Views\Cal_Nomina\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
