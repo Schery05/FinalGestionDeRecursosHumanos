@@ -40,6 +40,7 @@ namespace RecursosHumanos.Controllers
             return View(empleados.ToList());
         }
 
+       
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {

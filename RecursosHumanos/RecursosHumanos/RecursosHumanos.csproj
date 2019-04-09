@@ -278,12 +278,12 @@
     <Content Include="Views\Permisos\Details.cshtml" />
     <Content Include="Views\Permisos\Edit.cshtml" />
     <Content Include="Views\Permisos\Index.cshtml" />
-    <Content Include="Views\Home\Informes.cshtml" />
     <Content Include="Views\Licencias\Create.cshtml" />
     <Content Include="Views\Licencias\Delete.cshtml" />
     <Content Include="Views\Licencias\Details.cshtml" />
     <Content Include="Views\Licencias\Edit.cshtml" />
     <Content Include="Views\Licencias\Index.cshtml" />
+    <Content Include="Views\Home\Informe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

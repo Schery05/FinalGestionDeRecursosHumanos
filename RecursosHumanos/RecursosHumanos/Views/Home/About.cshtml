@@ -1,13 +1,16 @@
 ﻿@{
+    /**/
+
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
-@Html.ActionLink("INFORME DE NOMINAS", "Index", "Cal_Nomina")
-@Html.ActionLink("INFORME DE EMPLEADOS ACTIVOS", "Activos", "Empleados")
-@Html.ActionLink("INFORME DE EMPLEADOS INACTIVOS", "Inactivos", "Empleados")
-@Html.ActionLink("INFORME DE TODOS LOS DEPARTAMENTOS", "Index", "Departamentos")
-@Html.ActionLink("INFORME DE TODOS LOS CARGOS EXISTENTES", "Index", "Cargos")
+<div><h2>@Html.ActionLink("INFORME DE NOMINAS", "Index", "Cal_Nomina")</h2></div>
+<div><h2>@Html.ActionLink("INFORME DE EMPLEADOS ACTIVOS", "Activos", "Empleados")</h2></div>
+<div><h2>@Html.ActionLink("INFORME DE EMPLEADOS INACTIVOS", "Inactivos", "Empleados")</h2></div>
+<div><h2>@Html.ActionLink("INFORME DE TODOS LOS DEPARTAMENTOS", "Index", "Departamentos")</h2></div>
+<div><h2>@Html.ActionLink("INFORME DE TODOS LOS CARGOS EXISTENTES", "Index", "Cargos")</h2></div>
+<div><h2>@Html.ActionLink("INFORME DE TODOS LOS PERMISOS", "Index", "Permisos")</h2></div>
 
