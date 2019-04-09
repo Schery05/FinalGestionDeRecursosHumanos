@@ -25,6 +25,18 @@ namespace RecursosHumanos.Controllers
             var empleados = db.EmpleadosSet.Include(e => e.Departamento).Include(e => e.Cargos);
             return View(empleados.Where(x => x.Nombre.Contains(searching) || searching == null).ToList());
         }
+
+        public ActionResult BusquedaEmpleado(string FechaEntrada)
+        {
+           var Emple = from s in db.EmpleadosSet select s;
+            if (!string.IsNullOrEmpty(FechaEntrada))
+            {
+                DateTime NewFecha = DateTime.Parse(FechaEntrada);
+
+                Emple = Emple.Where(j => j.Fecha_Ingreso.Equals(NewFecha));
+            }
+            return View(Emple);
+        }
         
 
         // GET: Empleados
