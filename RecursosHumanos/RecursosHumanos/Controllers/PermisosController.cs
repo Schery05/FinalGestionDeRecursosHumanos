@@ -88,8 +88,9 @@ namespace RecursosHumanos.Controllers
             {
                 db.Entry(permisos).State = EntityState.Modified;
                 db.SaveChanges();
-            }
                 return RedirectToAction("Index");
+            }
+               
             ViewBag.EmpleadosId = new SelectList(db.EmpleadosSet, "Id", "Codigo_Empleado", permisos.EmpleadosId);
             return View(permisos);
         }
